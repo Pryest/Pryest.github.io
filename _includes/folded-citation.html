@@ -1,0 +1,19 @@
+<div class="publication-citation">
+  <details class="citation" markdown="0">
+    <summary>{% if include.publication.bibtex %}Citation (BibTeX){% else %}Recommended citation{% endif %}</summary>
+    {% if include.publication.bibtex %}
+    <pre class="citation__text"><code>{{ include.publication.bibtex | escape }}</code></pre>
+    {% else %}
+    <div class="citation__text">{{ include.publication.citation }}</div>
+    {% endif %}
+    <button type="button" class="btn btn--small citation__copy" hidden>{% if include.publication.bibtex %}Copy BibTeX{% else %}Copy citation{% endif %}</button>
+    <span class="citation__status" role="status" aria-live="polite"></span>
+  </details>
+  {% if include.publication.paperurl or include.publication.slidesurl or include.publication.bibtexurl %}
+  <p>
+    {% if include.publication.paperurl %}<a href="{{ include.publication.paperurl }}">Download Paper</a>{% endif %}
+    {% if include.publication.slidesurl %}{% if include.publication.paperurl %} | {% endif %}<a href="{{ include.publication.slidesurl }}">Download Slides</a>{% endif %}
+    {% if include.publication.bibtexurl %}{% if include.publication.paperurl or include.publication.slidesurl %} | {% endif %}<a href="{{ include.publication.bibtexurl }}">Download Bibtex</a>{% endif %}
+  </p>
+  {% endif %}
+</div>

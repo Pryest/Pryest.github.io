@@ -20,6 +20,39 @@ See more info at https://academicpages.github.io/
 Additional tutorials for working with the Academic Pages template can be found at the following sites:
 - https://jayrobwilliams.com/posts/2020/06/academic-website/
 
+## Conference presentation types
+
+Add `presentation_type: 'Oral'` or `presentation_type: 'Poster'` to a
+publication's Markdown front matter. The label appears in bold alongside the
+conference details on publication pages and lists, and after the citation in
+the CV. Omit the field to show no label.
+
+## Collapsible citations
+
+Add `citation_folded: true` to a publication's Markdown front matter to show a
+collapsed citation with a copy button on its page and in publication lists:
+
+```yaml
+citation: 'Author. (2025). Paper title. <i>Venue</i>.'
+citation_folded: true
+bibtex: |
+  @inproceedings{author2025paper,
+    title = {Paper title},
+    author = {Author},
+    year = {2025}
+  }
+```
+
+The optional `bibtex` field is displayed and copied as plain text with its line
+breaks preserved. Without it, the block displays `citation` and copies its text
+without HTML tags. Download links stay outside the collapsed block. Publications
+without `citation_folded: true` keep their existing citation display.
+
+Folding uses native HTML `<details>`; copying uses JavaScript on the Jekyll site
+(GitHub's Markdown preview does not run it). If clipboard access is blocked, the
+text is selected for manual copying. Without JavaScript, the citation can still
+be expanded and copied manually.
+
 ## Running locally
 
 When you are initially working on your website, it is very useful to be able to preview the changes locally before pushing them to GitHub. To work locally you will need to:

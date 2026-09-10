@@ -1,0 +1,40 @@
+.publication-citation {
+  margin-bottom: 1em;
+  font-size: $type-size-6;
+}
+
+.citation {
+  margin-bottom: 0.75em;
+  padding: 0.75em 1em;
+  border: 1px solid var(--global-border-color);
+  border-radius: $border-radius;
+
+  summary {
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  &__text {
+    margin: 1em 0;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+
+    code {
+      white-space: inherit;
+    }
+  }
+
+  &__copy[hidden] {
+    display: none;
+  }
+
+  &__status {
+    margin-left: 0.5em;
+  }
+
+  summary:focus-visible,
+  &__copy:focus-visible {
+    outline: 2px solid var(--global-text-color);
+    outline-offset: 3px;
+  }
+}
